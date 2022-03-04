@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="ProizvodiModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="KatalogProizvoda">
+          <Key>
+            <PropertyRef Name="KatalogId" />
+          </Key>
+          <Property Name="KatalogId" Type="int" Nullable="false" />
+          <Property Name="Proizvod" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="ProizvodId" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ProizvodId" />
+          </Key>
+          <Property Name="ProizvodId" Type="int" Nullable="false" />
+          <Property Name="Naziv" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="Tip" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Cijena" Type="money" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_KatalogProizvoda_Proizvod">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="KatalogProizvoda" Type="Self.KatalogProizvoda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ProizvodId" />
+            </Principal>
+            <Dependent Role="KatalogProizvoda">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="DeleteProizvod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProizvodId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="GetProizvod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="InsertProizvod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Naziv" Type="varchar" Mode="In" />
+          <Parameter Name="Tip" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cijena" Type="money" Mode="In" />
+        </Function>
+        <Function Name="UpdateProizvod" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ProizvodId" Type="int" Mode="In" />
+          <Parameter Name="Naziv" Type="varchar" Mode="In" />
+          <Parameter Name="Tip" Type="nvarchar" Mode="In" />
+          <Parameter Name="Cijena" Type="money" Mode="In" />
+        </Function>
+        <EntityContainer Name="ProizvodiModelStoreContainer">
+          <EntitySet Name="KatalogProizvoda" EntityType="Self.KatalogProizvoda" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proizvod" EntityType="Self.Proizvod" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_KatalogProizvoda_Proizvod" Association="Self.FK_KatalogProizvoda_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvod" />
+            <End Role="KatalogProizvoda" EntitySet="KatalogProizvoda" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ProizvodiModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="KatalogProizvoda">
+          <Key>
+            <PropertyRef Name="KatalogId" />
+          </Key>
+          <Property Name="KatalogId" Type="Int32" Nullable="false" />
+          <Property Name="Proizvod" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
+          <Property Name="ProizvodId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Proizvod1" Relationship="Self.FK_KatalogProizvoda_Proizvod" FromRole="KatalogProizvoda" ToRole="Proizvod" />
+        </EntityType>
+        <EntityType Name="Proizvod">
+          <Key>
+            <PropertyRef Name="ProizvodId" />
+          </Key>
+          <Property Name="ProizvodId" Type="Int32" Nullable="false" />
+          <Property Name="Naziv" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Tip" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Cijena" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="KatalogProizvodas" Relationship="Self.FK_KatalogProizvoda_Proizvod" FromRole="Proizvod" ToRole="KatalogProizvoda" />
+        </EntityType>
+        <Association Name="FK_KatalogProizvoda_Proizvod">
+          <End Role="Proizvod" Type="Self.Proizvod" Multiplicity="1" />
+          <End Role="KatalogProizvoda" Type="Self.KatalogProizvoda" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proizvod">
+              <PropertyRef Name="ProizvodId" />
+            </Principal>
+            <Dependent Role="KatalogProizvoda">
+              <PropertyRef Name="ProizvodId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ProizvodiEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="KatalogProizvodas" EntityType="Self.KatalogProizvoda" />
+          <EntitySet Name="Proizvods" EntityType="Self.Proizvod" />
+          <AssociationSet Name="FK_KatalogProizvoda_Proizvod" Association="Self.FK_KatalogProizvoda_Proizvod">
+            <End Role="Proizvod" EntitySet="Proizvods" />
+            <End Role="KatalogProizvoda" EntitySet="KatalogProizvodas" />
+          </AssociationSet>
+          <FunctionImport Name="DeleteProizvod">
+            <Parameter Name="ProizvodId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="GetProizvod" ReturnType="Collection(ProizvodiModel.GetProizvod_Result)" />
+          <FunctionImport Name="InsertProizvod">
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Tip" Mode="In" Type="String" />
+            <Parameter Name="Cijena" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateProizvod">
+            <Parameter Name="ProizvodId" Mode="In" Type="Int32" />
+            <Parameter Name="Naziv" Mode="In" Type="String" />
+            <Parameter Name="Tip" Mode="In" Type="String" />
+            <Parameter Name="Cijena" Mode="In" Type="Decimal" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="GetProizvod_Result">
+          <Property Type="Int32" Name="ProizvodId" Nullable="false" />
+          <Property Type="String" Name="Naziv" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="Tip" Nullable="false" MaxLength="255" />
+          <Property Type="Decimal" Name="Cijena" Nullable="false" Precision="19" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ProizvodiModelStoreContainer" CdmEntityContainer="ProizvodiEntities">
+          <EntitySetMapping Name="KatalogProizvodas">
+            <EntityTypeMapping TypeName="ProizvodiModel.KatalogProizvoda">
+              <MappingFragment StoreEntitySet="KatalogProizvoda">
+                <ScalarProperty Name="KatalogId" ColumnName="KatalogId" />
+                <ScalarProperty Name="Proizvod" ColumnName="Proizvod" />
+                <ScalarProperty Name="ProizvodId" ColumnName="ProizvodId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proizvods">
+            <EntityTypeMapping TypeName="ProizvodiModel.Proizvod">
+              <MappingFragment StoreEntitySet="Proizvod">
+                <ScalarProperty Name="ProizvodId" ColumnName="ProizvodId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="DeleteProizvod" FunctionName="ProizvodiModel.Store.DeleteProizvod" />
+          <FunctionImportMapping FunctionImportName="GetProizvod" FunctionName="ProizvodiModel.Store.GetProizvod">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProizvodiModel.GetProizvod_Result">
+                <ScalarProperty Name="ProizvodId" ColumnName="ProizvodId" />
+                <ScalarProperty Name="Naziv" ColumnName="Naziv" />
+                <ScalarProperty Name="Tip" ColumnName="Tip" />
+                <ScalarProperty Name="Cijena" ColumnName="Cijena" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="InsertProizvod" FunctionName="ProizvodiModel.Store.InsertProizvod" />
+          <FunctionImportMapping FunctionImportName="UpdateProizvod" FunctionName="ProizvodiModel.Store.UpdateProizvod" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

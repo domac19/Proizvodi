@@ -1,0 +1,26 @@
+﻿@model Proizvodi.Models.ProizvodViewModel
+@{
+    ViewBag.Title = "Add";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Add</h2>
+
+@using (Html.BeginForm("Save", "Proizvod"))
+{
+    @Html.ValidationSummary(true, "Please input following spaces to continue.")
+    <div class="form-group">
+        @Html.LabelFor(p => p.Proizvod.Naziv)
+        @Html.TextBoxFor(p => p.Proizvod.Naziv, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Proizvod.Naziv)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Proizvod.Tip)
+        @Html.TextBoxFor(p => p.Proizvod.Tip, new { @class = "form-control" })
+        @Html.ValidationMessageFor(p => p.Proizvod.Tip)
+    </div>
+    @Html.HiddenFor(p => p.Proizvod.ProizvodId)
+    @Html.AntiForgeryToken()
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
