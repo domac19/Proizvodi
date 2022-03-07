@@ -12,6 +12,14 @@
     <hr />
     <dl class="dl-horizontal">
         <dt>
+            @Html.DisplayNameFor(model => model.ProizvodId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ProizvodId)
+        </dd>
+
+        <dt>
             @Html.DisplayNameFor(model => model.Proizvod)
         </dt>
 
@@ -20,16 +28,15 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Proizvod1.Naziv)
+            @Html.DisplayNameFor(model => model.Vrsta)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Proizvod1.Naziv)
+            @Html.DisplayFor(model => model.Vrsta)
         </dd>
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.KatalogId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+<button>
+    @Html.ActionLink("Back", "Index")
+</button>

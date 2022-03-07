@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit Proizvod</h2>
+<h2>Promijeni</h2>
 
 
 @using (Html.BeginForm())
@@ -44,15 +44,15 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Spremi" class="btn btn-default" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Povratak", "Index")
-</div>
+<button>
+    @Html.ActionLink("Back", "Index")
+</button>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

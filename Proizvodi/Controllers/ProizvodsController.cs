@@ -40,7 +40,7 @@ namespace Proizvodi.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ProizvodId,Naziv,Tip,Cijena")] Proizvod proizvod)
+        public ActionResult Create([Bind(Include = "ProizvodId,Naziv,Tip,Cijena_u_kn")] Proizvod proizvod)
         {
             if (ModelState.IsValid)
             {
@@ -68,7 +68,7 @@ namespace Proizvodi.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ProizvodId,Naziv,Tip,Cijena")] Proizvod proizvod)
+        public ActionResult Edit([Bind(Include = "ProizvodId,Naziv,Tip,Cijena_u_kn")] Proizvod proizvod)
         {
             if (ModelState.IsValid)
             {

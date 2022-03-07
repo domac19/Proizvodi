@@ -21,28 +21,27 @@
         <th></th>
     </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Naziv)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tip)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Cijena_u_kn)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ProizvodId }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ProizvodId }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ProizvodId })
-            </td>
-        </tr>
-    }
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Naziv)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Tip)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cijena_u_kn)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ProizvodId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ProizvodId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ProizvodId })
+        </td>
+    </tr>
+}
 
 </table>
 
 <button>
-    @Html.ActionLink("Dodaj", "Create")
+    @Html.ActionLink("Add new", "Create")
 </button>
