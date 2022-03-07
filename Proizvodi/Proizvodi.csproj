@@ -170,6 +170,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KatalogController.cs" />
+    <Compile Include="Controllers\KatalogProizvodasController.cs" />
     <Compile Include="Controllers\ProizvodiController.cs" />
     <Compile Include="Controllers\ProizvodsController.cs" />
     <Compile Include="GetProizvod_Result.cs">
@@ -260,6 +261,11 @@
     <Content Include="Views\Proizvods\Details.cshtml" />
     <Content Include="Views\Proizvods\Edit.cshtml" />
     <Content Include="Views\Proizvods\Index.cshtml" />
+    <Content Include="Views\KatalogProizvodas\Create.cshtml" />
+    <Content Include="Views\KatalogProizvodas\Delete.cshtml" />
+    <Content Include="Views\KatalogProizvodas\Details.cshtml" />
+    <Content Include="Views\KatalogProizvodas\Edit.cshtml" />
+    <Content Include="Views\KatalogProizvodas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -23,7 +23,7 @@ namespace Proizvodi
         public int ProizvodId { get; set; }
         public string Naziv { get; set; }
         public string Tip { get; set; }
-        public decimal Cijena { get; set; }
+        public decimal Cijena_u_kn { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<KatalogProizvoda> KatalogProizvodas { get; set; }

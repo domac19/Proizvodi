@@ -1,0 +1,35 @@
+﻿@model Proizvodi.KatalogProizvoda
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KatalogProizvoda</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Proizvod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Proizvod1.Naziv)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Proizvod1.Naziv)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KatalogId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

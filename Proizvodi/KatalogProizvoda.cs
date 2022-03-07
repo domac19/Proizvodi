@@ -17,6 +17,7 @@ namespace Proizvodi
         public int KatalogId { get; set; }
         public string Proizvod { get; set; }
         public int ProizvodId { get; set; }
+        public string Vrsta { get; set; }
     
         public virtual Proizvod Proizvod1 { get; set; }
     }

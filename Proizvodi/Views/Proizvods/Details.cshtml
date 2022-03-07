@@ -5,7 +5,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Details</h2>
+<h2>Detalji</h2>
 
 <div>
     <h4>Proizvod</h4>
@@ -28,16 +28,16 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Cijena)
+            @Html.DisplayNameFor(model => model.Cijena_u_kn)
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.Cijena)
+            @Html.DisplayFor(model => model.Cijena_u_kn)
         </dd>
 
     </dl>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ProizvodId }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Povratak", "Index")
 </p>
