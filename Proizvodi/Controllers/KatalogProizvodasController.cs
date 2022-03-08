@@ -70,7 +70,6 @@ namespace Proizvodi.Controllers
             return View(katalogProizvoda);
         }
 
-
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "KatalogId,Proizvod,ProizvodId,Vrsta")] KatalogProizvoda katalogProizvoda)

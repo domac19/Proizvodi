@@ -5,13 +5,10 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Katalog proizvoda</h2>
+<h2>Katalog Proizvoda</h2>
 
 <table class="table">
     <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.ProizvodId)
-        </th>
         <th>
             @Html.DisplayNameFor(model => model.Proizvod)
         </th>
@@ -22,25 +19,22 @@
     </tr>
 
 @foreach (var item in Model) {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.ProizvodId)
-    </td>
-    <th>
-        @Html.DisplayNameFor(model => model.Proizvod)
-    </th>
-    <td>
-        @Html.DisplayFor(modelItem => item.Vrsta)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.KatalogId }) |
-        @Html.ActionLink("Details", "Details", new { id = item.KatalogId }) |
-        @Html.ActionLink("Delete", "Delete", new { id = item.KatalogId })
-    </td>
-</tr>
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Proizvod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Vrsta)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.KatalogId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.KatalogId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.KatalogId })
+        </td>
+    </tr>
 }
 
 </table>
 <button>
-    @Html.ActionLink("Add new", "Create")
+    @Html.ActionLink("Create New", "Create")
 </button>
